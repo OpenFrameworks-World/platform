@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openframeworks.world/schemas/framework-card.schema.json",
+  "title": "Framework Card",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "type",
+    "status",
+    "version",
+    "summary",
+    "domain",
+    "license",
+    "governance",
+    "provenance",
+    "scoring"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^framework:[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "type": {
+      "type": "string",
+      "enum": [
+        "software-framework",
+        "methodology",
+        "standard",
+        "protocol",
+        "reference-architecture",
+        "operating-model",
+        "governance-model",
+        "data-model",
+        "security-control-set",
+        "benchmark",
+        "implementation-pattern"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["proposed", "draft", "reviewed", "approved", "recommended", "adopted", "deprecated", "rejected", "archived"]
+    },
+    "version": { "type": "string" },
+    "summary": { "type": "string" },
+    "domain": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "category": { "type": "array", "items": { "type": "string" } },
+    "license": {
+      "type": "object",
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "publisher": { "type": "string" },
+    "maintainers": { "type": "array", "items": { "type": "string" } },
+    "best_for": { "type": "array", "items": { "type": "string" } },
+    "not_recommended_for": { "type": "array", "items": { "type": "string" } },
+    "strengths": { "type": "array", "items": { "type": "string" } },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["depends_on", "implements", "extends", "competes_with", "complements", "replaces", "belongs_to", "governed_by", "validated_by"]
+          },
+          "target": { "type": "string" },
+          "rationale": { "type": "string" }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "required": ["owner", "review_status", "approval_required"],
+      "properties": {
+        "owner": { "type": "string" },
+        "review_status": { "type": "string", "enum": ["not-reviewed", "in-review", "approved", "rejected", "needs-evidence"] },
+        "approval_required": { "type": "boolean" },
+        "last_reviewed_at": { "type": "string" },
+        "next_review_due_at": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sources", "created_at", "updated_at"],
+      "properties": {
+        "sources": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" },
+        "evidence_level": { "type": "string", "enum": ["none", "low", "medium", "high", "verified"] }
+      }
+    },
+    "scoring": {
+      "type": "object",
+      "required": ["overall_score", "confidence_score", "risk_score"],
+      "properties": {
+        "overall_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "confidence_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "risk_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "recommendation": { "type": "string", "enum": ["adopt", "trial", "monitor", "avoid", "insufficient-evidence"] }
+      }
+    }
+  }
+}
