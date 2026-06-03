@@ -1,124 +1,139 @@
 # OpenFrameworks Platform
 
-OpenFrameworks Platform is the canonical operating platform for discovering, governing, composing, benchmarking, and publishing open frameworks as reusable enterprise-grade assets.
+OpenFrameworks Platform is the open-core product implementation that operationalizes the OpenFrameworks Foundation.
+
+The platform discovers, stores, validates, searches, compares, governs, benchmarks, publishes, recommends, certifies, and accredits frameworks, standards, protocols, methodologies, operating models, governance models, maturity models, benchmarks, reference architectures, and implementation patterns.
+
+## Relationship to Foundation
+
+Canonical meaning lives in the foundation repository.
+
+```text
+OpenFrameworks Foundation
+  -> defines ontology, schemas, vocabulary, governance rules, trust model, scoring dimensions, certification, accreditation, and traceability model
+
+OpenFrameworks Platform
+  -> implements registry, graph, validation, search, workflows, APIs, publishing, benchmarking, recommendations, dashboards, and enterprise operating surfaces
+```
+
+Foundation repo:
+
+```text
+https://github.com/OpenFrameworks-World/foundation
+```
+
+This repository must consume foundation definitions, not redefine them.
 
 ## North Star
 
-Make every useful framework discoverable, comparable, governable, composable, and production-ready.
+Make every useful framework discoverable, comparable, governable, certifiable, accreditable, composable, and operationally useful.
 
-## Positioning
+## Product Positioning
 
-This repository anchors the OpenFrameworks World platform as a neutral framework intelligence, governance, and delivery layer.
+OpenFrameworks Platform is a vendor-neutral framework intelligence and governance platform.
 
-It is not limited to software libraries. A framework may be a methodology, protocol, reference architecture, maturity model, governance model, operating model, data model, AI model, security control set, evaluation benchmark, product blueprint, or implementation pattern.
+It helps organizations answer:
 
-## Core Principles
+- Which framework should we use?
+- Why should we trust it?
+- What evidence supports it?
+- What alternatives exist?
+- What are the risks?
+- Which capabilities and outcomes does it support?
+- Who approved it?
+- Is it certified or accredited?
+- Is it still creating value?
 
-- Everything is an asset.
-- Everything has a card.
-- Everything is governed.
-- Everything is versioned.
-- Everything is traceable.
-- Everything is comparable.
-- Everything is composable.
-- Everything is benchmarkable.
-- Everything must declare scope, assumptions, constraints, provenance, license, lifecycle, and fitness.
-- Open standards are preferred over proprietary abstractions.
-- Human approval is required for material governance, trust, or production changes.
+## Open-Core Boundary
 
-## Platform Capabilities
+### Open Platform Capabilities
 
-### Registry
+The open platform should include:
 
-A canonical registry for frameworks, framework families, artifacts, schemas, benchmarks, policies, and implementation kits.
+- public framework registry
+- framework card rendering
+- foundation schema validation
+- public graph model
+- public search
+- public benchmark definitions
+- public scoring views
+- public publishing templates
+- community reports
+- GitHub-native contribution workflows
 
-### Framework Cards
+### Commercial / Enterprise Capabilities
 
-Every framework has a machine-readable card that describes identity, scope, provenance, maturity, license, dependencies, risks, compatibility, governance status, and recommended usage.
+Commercial or private extensions may include:
 
-### Governance
+- private enterprise catalogs
+- organization-specific accreditation workflows
+- SSO and SCIM
+- RBAC, ABAC, and approval workflows
+- private evidence management
+- portfolio rationalization
+- compliance mapping
+- executive dashboards
+- audit exports
+- advanced recommendation assistant
+- enterprise integrations
+- managed deployments and support
 
-Policy-first review, approval, deprecation, exception handling, lifecycle management, auditability, and compliance alignment.
-
-### Scoring and Benchmarking
-
-Frameworks are evaluated using transparent scoring models covering maturity, adoption, maintainability, security, interoperability, documentation, ecosystem health, implementation complexity, and production readiness.
-
-### Composition
-
-Frameworks can be connected into solution blueprints, platform reference architectures, implementation roadmaps, operating models, and enterprise delivery patterns.
-
-### Publishing
-
-Frameworks, comparisons, playbooks, catalogs, reports, and implementation packs can be published through neutral channels while preserving attribution and governance metadata.
-
-## Repository Structure
+## Platform Runtime Modules
 
 ```text
-.
-├── docs/                  # Canonical documentation
-├── schemas/               # JSON Schema and JSON-LD models
-├── registry/              # Example framework cards and catalog records
-├── governance/            # Policies, lifecycle, decision records
-├── scoring/               # Scoring model, dimensions, formulas
-├── benchmarks/            # Benchmark definitions and evaluation templates
-├── blueprints/            # Reference architectures and solution patterns
-├── examples/              # Sample framework records and compositions
-├── .github/workflows/     # CI validation
-└── README.md
+registry/       # framework and asset catalog implementation
+graph/          # relationship graph and traversal engine
+validation/     # validation against foundation schemas and policies
+search/         # search and discovery
+benchmarks/     # benchmark execution and reporting runtime
+scoring/        # runtime score calculation using foundation dimensions
+trust/          # trust, confidence, and risk calculation runtime
+workflows/      # review, approval, certification, accreditation workflows
+publishing/     # static and dynamic publishing surfaces
+api/            # public and internal APIs
+apps/web/       # public web experience
+apps/admin/     # admin and governance console
+integrations/   # connectors and import/export pipelines
+extensions/     # extension boundaries for enterprise/private capabilities
 ```
 
-## First Class Entities
+## What Belongs in Foundation, Not Here
 
-- Framework
-- Framework Family
-- Framework Card
-- Artifact
-- Capability
-- Domain
-- Use Case
-- Constraint
-- Policy
-- Benchmark
-- Score
-- Evidence
-- Decision
-- Exception
-- Lifecycle State
-- Relationship
-- Composition
-- Blueprint
-- Publisher
-- Maintainer
-- Consumer
+The following canonical definitions belong in OpenFrameworks Foundation:
 
-## Lifecycle States
+- ontology
+- JSON-LD context
+- JSON Schemas
+- glossary
+- taxonomy
+- vendor-neutrality policy
+- trust model
+- scoring dimensions
+- certification levels
+- accreditation vocabulary
+- capability model
+- outcome model
+- stakeholder model
+- decision model
+- action model
+- lifecycle model
+- traceability model
 
-- Proposed
-- Draft
-- Reviewed
-- Approved
-- Recommended
-- Adopted
-- Deprecated
-- Rejected
-- Archived
+The platform may keep generated copies, pinned versions, or imported packages for runtime use, but foundation remains the source of truth.
 
-## Canonical Output
+## First Implementation Milestones
 
-The platform should produce:
+1. Import foundation schemas and context.
+2. Add framework card validation.
+3. Add public registry folder and sample cards.
+4. Build graph ingestion from cards.
+5. Add search and filtering.
+6. Add scoring runtime.
+7. Add trust and risk runtime.
+8. Add publishing output.
+9. Add governance workflow skeleton.
+10. Add API and web UI.
 
-- Framework registry
-- Framework cards
-- Comparison reports
-- Architecture blueprints
-- Governance decisions
-- Maturity scores
-- Adoption guidance
-- Implementation kits
-- Benchmark reports
-- Risk and compliance reports
+## Status
 
-## License
-
-License to be defined by the repository owner.
+Early platform draft.
