@@ -12,6 +12,7 @@
     "summary",
     "domain",
     "license",
+    "vendor_neutrality",
     "governance",
     "provenance",
     "scoring"
@@ -32,7 +33,10 @@
         "data-model",
         "security-control-set",
         "benchmark",
-        "implementation-pattern"
+        "implementation-pattern",
+        "vendor-implementation",
+        "commercial-distribution",
+        "hosted-service"
       ]
     },
     "status": {
@@ -50,6 +54,40 @@
         "name": { "type": "string" },
         "url": { "type": "string", "format": "uri" }
       }
+    },
+    "vendor_neutrality": {
+      "type": "object",
+      "required": [
+        "neutrality_required",
+        "vendor_specific",
+        "open_standard_available",
+        "open_source_available",
+        "portable_implementations",
+        "lock_in_risks",
+        "commercial_relationships",
+        "neutrality_review_status"
+      ],
+      "properties": {
+        "neutrality_required": { "type": "boolean", "const": true },
+        "vendor_specific": { "type": "boolean" },
+        "vendor_name": { "type": ["string", "null"] },
+        "open_standard_available": { "type": "boolean" },
+        "open_source_available": { "type": "boolean" },
+        "portable_implementations": { "type": "array", "items": { "type": "string" } },
+        "lock_in_risks": { "type": "array", "items": { "type": "string" } },
+        "commercial_relationships": { "type": "array", "items": { "type": "string" } },
+        "alternatives": { "type": "array", "items": { "type": "string" } },
+        "neutrality_review_status": {
+          "type": "string",
+          "enum": ["not-reviewed", "in-review", "approved", "needs-evidence", "vendor-specific", "rejected"]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "vendor_specific": { "const": true } } },
+          "then": { "required": ["vendor_name"] }
+        }
+      ]
     },
     "publisher": { "type": "string" },
     "maintainers": { "type": "array", "items": { "type": "string" } },
